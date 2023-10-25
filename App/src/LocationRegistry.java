@@ -1,7 +1,11 @@
 import java.util.*;
 
 public class LocationRegistry {
-  private List<Location> locationlist = new ArrayList<Location>();
+  private List<Location> locationlist;
+
+  public LocationRegistry() {
+    this.locationlist = new ArrayList<Location>();
+  }
 
   public Boolean islocationInRegistry(Location locationf) {
     for (Location location : locationlist) {
