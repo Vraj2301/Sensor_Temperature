@@ -4,7 +4,7 @@ import java.util.List;
 public class SensorRegistry {
   private List<Sensor> sensorlist;
 
-  public SensorRegistry() {
+  private SensorRegistry() {
     this.sensorlist = new ArrayList<Sensor>();
   }
 
