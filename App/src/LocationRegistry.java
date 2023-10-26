@@ -3,7 +3,7 @@ import java.util.*;
 public class LocationRegistry {
   private List<Location> locationlist;
 
-  public LocationRegistry() {
+  private LocationRegistry() {
     this.locationlist = new ArrayList<Location>();
   }
 
