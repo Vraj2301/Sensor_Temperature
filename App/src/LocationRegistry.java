@@ -5,7 +5,6 @@ public class LocationRegistry {
   // Private list of location object
   private List<Location> locationlist;
 
-  // Private constructor
   private LocationRegistry() {
     this.locationlist = new ArrayList<Location>();
   }

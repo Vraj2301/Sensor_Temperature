@@ -6,7 +6,6 @@ public class SensorRegistry {
   // Private list of sensor object
   private List<Sensor> sensorlist;
 
-  // Private constructor
   private SensorRegistry() {
     this.sensorlist = new ArrayList<Sensor>();
   }
