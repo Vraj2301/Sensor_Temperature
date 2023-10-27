@@ -11,6 +11,16 @@ public class SensorRegistry {
     this.sensorlist = new ArrayList<Sensor>();
   }
 
+  static SensorRegistry sensorRegistry = null;
+
+  // Static getInstance method
+  static public SensorRegistry getInstance() {
+    if (sensorRegistry == null)
+      sensorRegistry = new SensorRegistry();
+
+    return sensorRegistry;
+  }
+  
   // Checks if the sensor already in registry or not
   public Boolean isSensorInRegistry(Sensor sensorf) {
     for (Sensor sensor : sensorlist) {
