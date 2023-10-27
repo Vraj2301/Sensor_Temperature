@@ -3,8 +3,12 @@ public class Sensor {
   private Boolean isDeployed;
 
   public Sensor() {
-    this.sensorID = 0000;
-    this.isDeployed = false;
+    sensorID = 0000;
+    isDeployed = false;
+  }
+
+  public Sensor(Integer sensorID) {
+    this.sensorID = sensorID;
   }
 
   public Boolean getisDeployed() {

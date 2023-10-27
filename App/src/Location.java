@@ -7,6 +7,11 @@ public class Location {
     this.locationID = 0000;
   }
 
+  public Location(Integer locationID, String location) {
+    this.locationID = locationID;
+    this.location = location;
+  }
+
   public String getlocation() {
     return this.location;
   }

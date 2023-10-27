@@ -4,8 +4,18 @@ import java.util.List;
 public class SensorLocationTable {
     List<Pair<Sensor,Location>> sensorLocationTable; 
     
-    public SensorLocationTable() {
+    private SensorLocationTable() {
         sensorLocationTable = new ArrayList<>();
+    }
+
+    static SensorLocationTable sensorLocationTableInstance = null;
+
+    // Static getInstance method
+    static public SensorLocationTable getInstance() {
+    if (sensorLocationTableInstance == null)
+        sensorLocationTableInstance = new SensorLocationTable();
+
+    return sensorLocationTableInstance;
     }
 
     public boolean isLocationInTable(Location location) {
