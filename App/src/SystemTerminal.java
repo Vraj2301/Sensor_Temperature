@@ -17,7 +17,26 @@ public class SystemTerminal {
         sensorTemperatureTable = SensorTemperatureTable.getInstance();
     }
 
-    public void DeploySensor(Sensor sensor, Location location) {}
+    public void DeploySensor(Sensor sensor, Location location) {
+        if(isLocationInTable(location) == false) {
+            if (isSensorInTable(sensor) == false) {
+                if (isSensorInRegistry(sensor) == true) {
+                    if (isLocationInRegistry(location) == true) {
+                        Temperature t = new Temperature(sensor, location);
+                        System.out.println("OK.");
+                    } else {
+                        System.out.println("Location is not in registry");
+                    }
+                } else {
+                    System.out.println("Sensor is not in registry");
+                }
+            } else {
+                System.out.println("Sensor already deployed");
+            }
+        } else {
+            System.out.println("Location already covered");
+        }
+    }
 
     public void ReadTemperature(Location location) {}
 
