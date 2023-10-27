@@ -17,8 +17,9 @@ public class SystemTerminal {
         sensorTemperatureTable = SensorTemperatureTable.getInstance();
     }
 
-    //TODO: public void DeploySensor(Sensor sensor, Location location) {}
-    //TODO: public double ReadTemperature(Location location) {}
+    public void DeploySensor(Sensor sensor, Location location) {}
+
+    public void ReadTemperature(Location location) {}
 
     public Boolean isSensorInRegistry(Sensor sensor) {
         boolean sensorInRegistry = false;
@@ -37,7 +38,7 @@ public class SystemTerminal {
     }
 
     public Sensor getSensorFromSensorLocationTable(Location location) {
-        Sensor sensor = getSensorFromSensorLocationTable(location);
+        Sensor sensor = sensorLocationTable.getSensorFromSensorLocationTable(location);
         return sensor;
     }
 
@@ -57,8 +58,8 @@ public class SystemTerminal {
         return sensorInSensorLocationTable;
     }
 
-    public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {
-        Temperature temperature = getTemperatureFromSensorTemperatureTable(sensor);
+    public Double getTemperatureFromSensorTemperatureTable(Sensor sensor) {
+        Double temperature = sensorTemperatureTable.getTemperatureFromSensorTemperatureTable(sensor);
         return temperature;
     }
 
