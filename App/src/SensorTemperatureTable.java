@@ -4,8 +4,18 @@ import java.util.List;
 public class SensorTemperatureTable {
     List<Pair<Sensor,Temperature>> sensorTemperatureTable; 
     
-    public SensorTemperatureTable() {
+    private SensorTemperatureTable() {
         sensorTemperatureTable = new ArrayList<>();
+    }
+
+    static SensorTemperatureTable sensorTemperatureTableInstance = null;
+
+    // Static getInstance method
+    static public SensorTemperatureTable getInstance() {
+    if (sensorTemperatureTableInstance == null)
+        sensorTemperatureTableInstance = new SensorTemperatureTable();
+
+    return sensorTemperatureTableInstance;
     }
 
     public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {
