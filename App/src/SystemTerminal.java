@@ -4,28 +4,64 @@ import java.util.List;
 public class SystemTerminal {
 
     private List<Sensor> deployedSensors;
+    private SensorRegistry sensorRegistry;
+    private LocationRegistry locationRegistry;
+    private SensorLocationTable sensorLocationTable;
+    private SensorTemperatureTable sensorTemperatureTable;
 
     public SystemTerminal() {
         deployedSensors = new ArrayList<Sensor>();
+        sensorRegistry = SensorRegistry.getInstance();
+        locationRegistry = LocationRegistry.getInstance();
+        sensorLocationTable = SensorLocationTable.getInstance();
+        sensorTemperatureTable = SensorTemperatureTable.getInstance();
     }
 
-    // PUT DEFAULT FUNCTION CODE TO REMOVE ERRORS
-    // TODO: REPLACE FUNCTION CODE WITH PROPER IMPLEMENTATION FOR THE USE CASES
-    public void DeploySensor(Sensor sensor, Location location) {}
+    //TODO: public void DeploySensor(Sensor sensor, Location location) {}
+    //TODO: public double ReadTemperature(Location location) {}
 
-    public double ReadTemperature(Location location) { return 0.0; }
+    public Boolean isSensorInRegistry(Sensor sensor) {
+        boolean sensorInRegistry = false;
+        if(sensorRegistry.isSensorInRegistry(sensor) == true) {
+            sensorInRegistry = true;
+        }
+        return sensorInRegistry;
+    }
 
-    public Boolean isSensorInRegistry(Sensor sensor) { return true; }
+    public Boolean isLocationInRegistry(Location location) {
+        boolean locationInRegistry = false;
+        if(locationRegistry.isLocationInRegistry(location) == true) {
+            locationInRegistry = true;
+        }
+        return locationInRegistry;
+    }
 
-    public Boolean isLocationInRegistry() { return true; }
+    public Sensor getSensorFromSensorLocationTable(Location location) {
+        Sensor sensor = getSensorFromSensorLocationTable(location);
+        return sensor;
+    }
 
-    public Sensor getSensorFrom_SL_Table() { Sensor s1 = new Sensor(); return s1; }
+    public Boolean isLocationInTable(Location location) {
+        boolean locationInSensorLocationTable = false;
+        if(sensorLocationTable.isLocationInTable(location) == true) {
+            locationInSensorLocationTable = true;
+        }
+        return locationInSensorLocationTable;
+    }
 
-    public Sensor getSensorFrom_ST_Table() { Sensor s1 = new Sensor(); return s1; }
+    public Boolean isSensorInTable(Sensor sensor) {
+        boolean sensorInSensorLocationTable = false;
+        if(sensorLocationTable.isSensorInTable(sensor) == true) {
+            sensorInSensorLocationTable = true;
+        }
+        return sensorInSensorLocationTable;
+    }
 
-    public Location getLocationFrom_SL_Table() { Location l1 = new Location(); return l1; }
+    public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {
+        Temperature temperature = getTemperatureFromSensorTemperatureTable(sensor);
+        return temperature;
+    }
 
-    public double getTemperatureFrom_ST_Table() { return 0.0; }
 
     public List<Sensor> getDeployedSensors() {
         return deployedSensors;
