@@ -12,6 +12,7 @@ public class Sensor {
 
   public Sensor(Integer sensorID) {
     this.sensorID = sensorID;
+    isDeployed = false;
   }
 
   // Getter
