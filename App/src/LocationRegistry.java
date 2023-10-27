@@ -21,7 +21,7 @@ public class LocationRegistry {
   }
 
   // Checks if location in Registry or not
-  public Boolean islocationInRegistry(Location locationf) {
+  public Boolean isLocationInRegistry(Location locationf) {
     for (Location location : locationlist) {
       if (location.equals(locationf)) {
         return true;
@@ -37,7 +37,7 @@ public class LocationRegistry {
 
   // Add location to registry
   public void addlocation(Location location) {
-    if (!this.islocationInRegistry(location)) {
+    if (!this.isLocationInRegistry(location)) {
       this.locationlist.add(location);
     }
   }
