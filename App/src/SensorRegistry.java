@@ -6,6 +6,7 @@ public class SensorRegistry {
   // Private list of sensor object
   private List<Sensor> sensorlist;
 
+  // Private constructor
   private SensorRegistry() {
     this.sensorlist = new ArrayList<Sensor>();
   }
@@ -19,7 +20,7 @@ public class SensorRegistry {
 
     return sensorRegistry;
   }
-
+  
   // Checks if the sensor already in registry or not
   public Boolean isSensorInRegistry(Sensor sensorf) {
     for (Sensor sensor : sensorlist) {
