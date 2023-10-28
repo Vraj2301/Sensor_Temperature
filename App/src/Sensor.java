@@ -38,12 +38,15 @@ public class Sensor {
   // Override equals method of object class
   public Boolean equals(Sensor s) {
     if (this.sensorID == s.sensorID) {
-      System.out.print("Sensor with sensorId " + this.sensorID + " exist in Sensor registry and is ");
-      if (this.isDeployed) {
-        System.out.println("already deployed");
-      } else {
-        System.out.println("not deployed.");
-      }
+      /*
+       * System.out.print("Sensor with sensorId " + this.sensorID +
+       * " exist in Sensor registry and is ");
+       * if (this.isDeployed) {
+       * System.out.println("already deployed");
+       * } else {
+       * System.out.println("not deployed.");
+       * }
+       */
       return true;
     }
     return false;
