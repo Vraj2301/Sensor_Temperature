@@ -7,7 +7,7 @@ public class App {
         Sensor s1 = new Sensor(0001);
         Sensor s2 = new Sensor(0002);
         Sensor s3 = new Sensor(0003); // will not be registered
-        Sensor s4 = new Sensor(0001);
+        Sensor s4 = new Sensor(0004);
 
         // add sensors s1 and s2 to sensor registry
         sensorRegistry.addSensor(s1);
@@ -21,7 +21,7 @@ public class App {
         Location l1 = new Location(0001, "Location1");
         Location l2 = new Location(0002, "Location2");
         Location l3 = new Location(0003, "Location3"); // will not be registered
-        Location l4 = new Location(0002, "Location2");
+        Location l4 = new Location(0004, "Location4");
 
         // add locations l1 and l2 to sensor registry
         locationRegistry.addlocation(l1);
