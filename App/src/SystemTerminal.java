@@ -23,7 +23,7 @@ public class SystemTerminal {
                 if (isSensorInRegistry(sensor) == true) {
                     if (isLocationInRegistry(location) == true) {
                         Temperature t = new Temperature(sensor, location);
-                        System.out.println("OK.");
+                        System.out.println("OK. Deployed Sensor with ID: " + sensor.getsensorID());
                     } else {
                         System.out.println("Location is not in registry");
                     }
