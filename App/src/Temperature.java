@@ -1,4 +1,3 @@
-import java.util.random.*;
 
 public class Temperature {
 
@@ -11,8 +10,9 @@ public class Temperature {
     public Temperature(Sensor sensor, Location location) {
         this.sensor = sensor;
         this.location = location;
-        double min = 0.0; double max = 100.0;
-        tempValue = (Math.random() * ((max-min) + 1)) + min;
+        double min = 0.0;
+        double max = 100.0;
+        tempValue = (Math.random() * ((max - min) + 1)) + min;
         sensorTemperatureTable = SensorTemperatureTable.getInstance();
         sensorLocationTable = SensorLocationTable.getInstance();
         storeSensorLocationPair(sensor, location);

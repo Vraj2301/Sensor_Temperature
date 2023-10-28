@@ -18,7 +18,7 @@ public class SystemTerminal {
     }
 
     public void DeploySensor(Sensor sensor, Location location) {
-        if(isLocationInTable(location) == false) {
+        if (isLocationInTable(location) == false) {
             if (isSensorInTable(sensor) == false) {
                 if (isSensorInRegistry(sensor) == true) {
                     if (isLocationInRegistry(location) == true) {
@@ -38,11 +38,19 @@ public class SystemTerminal {
         }
     }
 
-    public void ReadTemperature(Location location) {}
+    public void ReadTemperature(Location location) {
+        if (isLocationInTable(location) == true) {
+            Sensor s1 = getSensorFromSensorLocationTable(location);
+            Double value = getTemperatureFromSensorTemperatureTable(s1);
+            System.out.println("OK. Temperature Value = " + value.toString());
+        } else {
+            System.out.println("Location not covered.");
+        }
+    }
 
     public Boolean isSensorInRegistry(Sensor sensor) {
         boolean sensorInRegistry = false;
-        if(sensorRegistry.isSensorInRegistry(sensor) == true) {
+        if (sensorRegistry.isSensorInRegistry(sensor) == true) {
             sensorInRegistry = true;
         }
         return sensorInRegistry;
@@ -50,7 +58,7 @@ public class SystemTerminal {
 
     public Boolean isLocationInRegistry(Location location) {
         boolean locationInRegistry = false;
-        if(locationRegistry.isLocationInRegistry(location) == true) {
+        if (locationRegistry.isLocationInRegistry(location) == true) {
             locationInRegistry = true;
         }
         return locationInRegistry;
@@ -63,7 +71,7 @@ public class SystemTerminal {
 
     public Boolean isLocationInTable(Location location) {
         boolean locationInSensorLocationTable = false;
-        if(sensorLocationTable.isLocationInTable(location) == true) {
+        if (sensorLocationTable.isLocationInTable(location) == true) {
             locationInSensorLocationTable = true;
         }
         return locationInSensorLocationTable;
@@ -71,7 +79,7 @@ public class SystemTerminal {
 
     public Boolean isSensorInTable(Sensor sensor) {
         boolean sensorInSensorLocationTable = false;
-        if(sensorLocationTable.isSensorInTable(sensor) == true) {
+        if (sensorLocationTable.isSensorInTable(sensor) == true) {
             sensorInSensorLocationTable = true;
         }
         return sensorInSensorLocationTable;
@@ -82,7 +90,6 @@ public class SystemTerminal {
         return temperature;
     }
 
-
     public List<Sensor> getDeployedSensors() {
         return deployedSensors;
     }
@@ -90,6 +97,5 @@ public class SystemTerminal {
     public void setDeployedSensors(List<Sensor> deployedSensors) {
         this.deployedSensors = deployedSensors;
     }
-
 
 }
