@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{alltt}
+\usepackage{array}	
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{hyperref}
+\usepackage{oz}
+\usepackage[cc]{titlepic}
+\usepackage{fancyvrb}
+
+%opening
+\title{Completing Z Specifications}
+\author{}
+
+\newcommand{\rsubt}{\mathrel{%
+		\ooalign{$\triangleright$\cr\hidewidth\scalebox{.65}[1]{$-$}\hidewidth\cr}%
+}}
+\newcommand{\dsubt}{\mathrel{%
+		\ooalign{$\triangleleft$\cr\hidewidth\scalebox{.65}[1]{$-$}\hidewidth\cr}%
+}}
+
+\begin{document}
+	\maketitle
+
+	\begin{schema}{TempMonitor}
+		deployed~:~\mathbb{P}~SENSOR\_TYPE\\
+		map : SENSOR\_TYPE \nrightarrow LOCATION\_TYPE\\
+		read : SENSOR\_TYPE  \nrightarrow TEMPERATURE\_TYPE\\
+		\where
+		deployed = \dom map\\
+		deployed = \dom read
+	\end{schema}
+	
+	\begin{schema}{ReplaceSensorOK}
+		\Delta TempMonitor\\
+		location? : LOCATION\_TYPE\\
+		new\_sensor? : SENSOR\_TYPE\\
+		\where
+		new\_sensor? \notin deployed\\
+		deployed' = deployed \setminus \left\lbrace map^{-1}(location?) \right\rbrace \\
+		map' = \left\lbrace map^{-1}(location?) \right\rbrace \dsubt map \\
+		map' = map \oplus \left\lbrace new\_sensor? \mapsto location? \right\rbrace \\
+	\end{schema}
+	
+	\begin{schema}{ReturnCollectionOK}
+		\Xi TempMonitor\\
+		locations!~:~\mathbb{P}~LOCATION\_TYPE\\
+		temperatures!~:~\mathbb{P}~TEMPERATURE\_TYPE\\
+		\where
+		locations! = \ran map\\
+		temperatures! = \ran read\\
+	\end{schema}
+
+	\[ ReplaceSensor~\hat{=}~ (ReplaceSensorOK \wedge Success) \oplus (LocationUnkown \vee SensorAlreadyDeployed) \]
+	\[ ReturnCollection~\hat{=}~ ReturnCollectionOK\]
+
+
+\end{document}
