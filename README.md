@@ -3,7 +3,10 @@ Aryan Shirazi - 40119594 - GitHub: AryanSh1380 - aryan.nathaniel.shirazi@gmail.c
 Karim Tabbara - 40157871 - GitHub: karim-tabbara - karimtabb2002@gmail.com - SOEN342 Section II \
 Vraj patel - 40155059 - GitHub: Vraj2301 - patelvn2301@gmail.com - SOEN342 Section II \
 \
-Domain Model:  ![Domain Model](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/db947ec7-00ac-4287-8f28-f7169a10f853) \
-Class Diagram: ![Class_Diagram]![class diagram]![Class_Diagram_27_Oct](https://github.com/AryanSh1380/SOEN342-Project/assets/76165234/68608533-fe90-4523-978f-57da3ec0ac92)  \
-SSD DeploySensor: ![SSD_for_DeploySensor_25_Oct](https://github.com/AryanSh1380/SOEN342-Project/assets/76165234/a72a1b9e-ba8a-4916-8024-ec90f8b8cc91) \
-SSD ReadTemperature: ![SSD_for_ReadTemperature]![SSD_for_ReadTemperature_25_Oct](https://github.com/AryanSh1380/SOEN342-Project/assets/76165234/26d252e9-fc40-4156-84b3-8100db3c615e) \
+DIAGRAMS AS OF NOVEMBER 11 \
+Domain Model:   ![Domain Model](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/0e4ca73f-98d0-4ced-a66d-c46b59e49cc8) \
+Class Diagram:  ![CLASS DIAGRAM](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/4d58d57f-64ba-4e36-8a01-76cd8ae7a65a) \
+SSD DeploySensor: ![DEPLOYSENSOR SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/01e0645b-96c3-4c2a-91e4-ed59334bb393) \
+SSD ReadTemperature:  ![READTEMPERATURE SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/e06ce32b-34c6-47f6-8a30-0c7f3c2ad4d6) \
+SSD ReplaceSensor: ![REPLACESENSOR SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/dbb4a7ab-0ed2-4e68-a2b1-87fe201b5888) \
+SSD ReturnAllTemperaturesAndLocations: ![RETURNCOLLECTION SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/e1f886de-dc54-4108-acca-8ca91aa4ac4b) \
