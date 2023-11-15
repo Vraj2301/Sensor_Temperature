@@ -1,24 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SensorLocationTable {
+public class Map {
     List<SensorLocationPair> sensorLocationTable; 
     
-    private SensorLocationTable() {
+    private Map() {
         sensorLocationTable = new ArrayList<>();
     }
 
-    static SensorLocationTable sensorLocationTableInstance = null;
+    static Map mapInstance = null;
 
     // Static getInstance method
-    static public SensorLocationTable getInstance() {
-    if (sensorLocationTableInstance == null)
-        sensorLocationTableInstance = new SensorLocationTable();
+    static public Map getInstance() {
+    if (mapInstance == null)
+        mapInstance = new Map();
 
-    return sensorLocationTableInstance;
+    return mapInstance;
     }
 
-    public boolean isLocationInTable(Location location) {
+    public boolean isLocationInMap(Location location) {
         boolean isInTable = false;
         for (SensorLocationPair pair : sensorLocationTable) {
             if ((pair.getLocation()).equals(location)) {
@@ -29,7 +29,7 @@ public class SensorLocationTable {
         return isInTable;
     }
 
-    public boolean isSensorInTable(Sensor sensor) {
+    public boolean isSensorInMap(Sensor sensor) {
         boolean isInTable = false;
         for (SensorLocationPair pair : sensorLocationTable) {
             if ((pair.getSensor()).equals(sensor)) {
@@ -40,7 +40,7 @@ public class SensorLocationTable {
         return isInTable;
     }
 
-    public Sensor getSensorFromSensorLocationTable(Location location) {
+    public Sensor getSensorFromMap(Location location) {
         Sensor sensor = null;
         for (SensorLocationPair pair : sensorLocationTable) {
             if ((pair.getLocation()).equals(location)) {

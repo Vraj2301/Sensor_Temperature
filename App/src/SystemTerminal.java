@@ -2,19 +2,19 @@ public class SystemTerminal {
 
     private SensorRegistry sensorRegistry;
     private LocationRegistry locationRegistry;
-    private SensorLocationTable sensorLocationTable;
+    private Map map;
     private SensorTemperatureTable sensorTemperatureTable;
 
     public SystemTerminal() {
         sensorRegistry = SensorRegistry.getInstance();
         locationRegistry = LocationRegistry.getInstance();
-        sensorLocationTable = SensorLocationTable.getInstance();
+        map = Map.getInstance();
         sensorTemperatureTable = SensorTemperatureTable.getInstance();
     }
 
     public void DeploySensor(Sensor sensor, Location location, Temperature temperature) {
-        if (isLocationInTable(location) == false) {
-            if (isSensorInTable(sensor) == false) {
+        if (isLocationInMap(location) == false) {
+            if (isSensorInMap(sensor) == false) {
                 if (isSensorInRegistry(sensor) == true) {
                     if (isLocationInRegistry(location) == true) {
                         SensorLocationPair sensorLocationPair = new SensorLocationPair(sensor, location);
@@ -36,8 +36,8 @@ public class SystemTerminal {
     }
 
     public void ReadTemperature(Location location) {
-        if (isLocationInTable(location) == true) {
-            Sensor s1 = getSensorFromSensorLocationTable(location);
+        if (isLocationInMap(location) == true) {
+            Sensor s1 = getSensorFromMap(location);
             Temperature temperature = getTemperatureFromSensorTemperatureTable(s1);
             Double tempValue = temperature.getTempValue();
             System.out.println("OK. Temperature Value = " + tempValue.toString());
@@ -62,22 +62,22 @@ public class SystemTerminal {
         return locationInRegistry;
     }
 
-    public Sensor getSensorFromSensorLocationTable(Location location) {
-        Sensor sensor = sensorLocationTable.getSensorFromSensorLocationTable(location);
+    public Sensor getSensorFromMap(Location location) {
+        Sensor sensor = map.getSensorFromMap(location);
         return sensor;
     }
 
-    public Boolean isLocationInTable(Location location) {
+    public Boolean isLocationInMap(Location location) {
         boolean locationInSensorLocationTable = false;
-        if (sensorLocationTable.isLocationInTable(location) == true) {
+        if (map.isLocationInMap(location) == true) {
             locationInSensorLocationTable = true;
         }
         return locationInSensorLocationTable;
     }
 
-    public Boolean isSensorInTable(Sensor sensor) {
+    public Boolean isSensorInMap(Sensor sensor) {
         boolean sensorInSensorLocationTable = false;
-        if (sensorLocationTable.isSensorInTable(sensor) == true) {
+        if (map.isSensorInMap(sensor) == true) {
             sensorInSensorLocationTable = true;
         }
         return sensorInSensorLocationTable;
