@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SensorTemperatureTable {
-    List<Pair<Sensor,Temperature>> sensorTemperatureTable;
+    List<SensorTemperaturePair> sensorTemperatureTable;
     
     private SensorTemperatureTable() {
         sensorTemperatureTable = new ArrayList<>();
@@ -20,17 +20,13 @@ public class SensorTemperatureTable {
 
     public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {
         Temperature temperature = new Temperature();
-        for (Pair<Sensor, Temperature> pair : sensorTemperatureTable) {
-            if ((pair.first).equals(sensor)) {
-                temperature = pair.second;
+        for (SensorTemperaturePair pair : sensorTemperatureTable) {
+            if ((pair.getSensor()).equals(sensor)) {
+                temperature = pair.getTemperature();
                 break;
             }
         }
         return temperature;
     }
 
-    public void storeSensorTemperaturePair(Sensor sensor, Temperature temperature) {
-        Pair<Sensor,Temperature> sensorTemperaturePair = new Pair<>(sensor, temperature);
-        sensorTemperatureTable.add(sensorTemperaturePair);
-    }
 }
