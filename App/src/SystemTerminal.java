@@ -17,7 +17,7 @@ public class SystemTerminal {
             if (isSensorInMap(sensor) == false) {
                 if (isSensorInRegistry(sensor) == true) {
                     if (isLocationInRegistry(location) == true) {
-                        SensorLocationPair sensorLocationPair = new SensorLocationPair(sensor, location);
+                        map.makeSensorLocationPair(sensor, location);
                         temperature.assignRandomValue();
                         SensorTemperaturePair sensorTemperaturePair = new SensorTemperaturePair(sensor, temperature);
                         System.out.println("OK. Deployed Sensor with ID: " + sensor.getsensorID());
@@ -68,19 +68,19 @@ public class SystemTerminal {
     }
 
     public Boolean isLocationInMap(Location location) {
-        boolean locationInSensorLocationTable = false;
+        boolean locationInMap = false;
         if (map.isLocationInMap(location) == true) {
-            locationInSensorLocationTable = true;
+            locationInMap = true;
         }
-        return locationInSensorLocationTable;
+        return locationInMap;
     }
 
     public Boolean isSensorInMap(Sensor sensor) {
-        boolean sensorInSensorLocationTable = false;
+        boolean sensorInMap = false;
         if (map.isSensorInMap(sensor) == true) {
-            sensorInSensorLocationTable = true;
+            sensorInMap = true;
         }
-        return sensorInSensorLocationTable;
+        return sensorInMap;
     }
 
     public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {

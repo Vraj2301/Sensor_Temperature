@@ -18,6 +18,10 @@ public class Map {
     return mapInstance;
     }
 
+    public void makeSensorLocationPair(Sensor sensor, Location location) {
+        sensorLocationTable.add(new SensorLocationPair(sensor, location));
+    }
+
     public boolean isLocationInMap(Location location) {
         boolean isInTable = false;
         for (SensorLocationPair pair : sensorLocationTable) {
