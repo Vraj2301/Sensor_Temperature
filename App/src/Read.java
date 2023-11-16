@@ -29,4 +29,8 @@ public class Read {
         return temperature;
     }
 
+    public void makeSensorTemperaturePair(Sensor sensor, Temperature temperature) {
+        Read.add(new SensorTemperaturePair(sensor, temperature));
+    }
+
 }
