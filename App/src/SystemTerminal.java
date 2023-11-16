@@ -3,13 +3,13 @@ public class SystemTerminal {
     private SensorRegistry sensorRegistry;
     private LocationRegistry locationRegistry;
     private Map map;
-    private SensorTemperatureTable sensorTemperatureTable;
+    private Read Read;
 
     public SystemTerminal() {
         sensorRegistry = SensorRegistry.getInstance();
         locationRegistry = LocationRegistry.getInstance();
         map = Map.getInstance();
-        sensorTemperatureTable = SensorTemperatureTable.getInstance();
+        Read = Read.getInstance();
     }
 
     public void DeploySensor(Sensor sensor, Location location, Temperature temperature) {
@@ -38,7 +38,7 @@ public class SystemTerminal {
     public void ReadTemperature(Location location) {
         if (isLocationInMap(location) == true) {
             Sensor s1 = getSensorFromMap(location);
-            Temperature temperature = getTemperatureFromSensorTemperatureTable(s1);
+            Temperature temperature = getTemperatureFromRead(s1);
             Double tempValue = temperature.getTempValue();
             System.out.println("OK. Temperature Value = " + tempValue.toString());
         } else {
@@ -83,8 +83,8 @@ public class SystemTerminal {
         return sensorInMap;
     }
 
-    public Temperature getTemperatureFromSensorTemperatureTable(Sensor sensor) {
-        Temperature temperature = sensorTemperatureTable.getTemperatureFromSensorTemperatureTable(sensor);
+    public Temperature getTemperatureFromRead(Sensor sensor) {
+        Temperature temperature = Read.getTemperatureFromRead(sensor);
         return temperature;
     }
 }
