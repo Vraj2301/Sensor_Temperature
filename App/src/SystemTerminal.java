@@ -19,7 +19,7 @@ public class SystemTerminal {
                     if (isLocationInRegistry(location) == true) {
                         map.makeSensorLocationPair(sensor, location);
                         temperature.assignRandomValue();
-                        SensorTemperaturePair sensorTemperaturePair = new SensorTemperaturePair(sensor, temperature);
+                        Read.makeSensorTemperaturePair(sensor, temperature);
                         System.out.println("OK. Deployed Sensor with ID: " + sensor.getsensorID());
                     } else {
                         System.out.println("Location is not in registry");

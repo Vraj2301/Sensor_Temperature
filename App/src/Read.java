@@ -8,10 +8,10 @@ public class Read {
         Read = new ArrayList<>();
     }
 
-    static Read ReadInstance = null;
+    private Read ReadInstance = null;
 
     // Static getInstance method
-    static public Read getInstance() {
+    public Read getInstance() {
         if (ReadInstance == null)
             ReadInstance = new Read();
 
@@ -29,8 +29,10 @@ public class Read {
         return temperature;
     }
 
-    public void makeSensorTemperaturePair(Sensor sensor, Temperature temperature) {
-        Read.add(new SensorTemperaturePair(sensor, temperature));
+    public SensorTemperaturePair makeSensorTemperaturePair(Sensor sensor, Temperature temperature) {
+        SensorTemperaturePair pair = new SensorTemperaturePair(sensor, temperature);
+        Read.add(pair);
+        return pair;
     }
 
 }
