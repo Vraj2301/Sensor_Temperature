@@ -3,13 +3,13 @@ public class SystemTerminal {
     private SensorRegistry sensorRegistry;
     private LocationRegistry locationRegistry;
     private Map map;
-    private Read Read;
+    private Read read;
 
     public SystemTerminal() {
         sensorRegistry = SensorRegistry.getInstance();
         locationRegistry = LocationRegistry.getInstance();
         map = Map.getInstance();
-        Read = Read.getInstance();
+        read = Read.getInstance();
     }
 
     public void DeploySensor(Sensor sensor, Location location, Temperature temperature) {
@@ -19,7 +19,7 @@ public class SystemTerminal {
                     if (isLocationInRegistry(location) == true) {
                         map.makeSensorLocationPair(sensor, location);
                         temperature.assignRandomValue();
-                        SensorTemperaturePair sensorTemperaturePair = new SensorTemperaturePair(sensor, temperature);
+                        read.makeSensorTemperaturePair(sensor, temperature);
                         System.out.println("OK. Deployed Sensor with ID: " + sensor.getsensorID());
                     } else {
                         System.out.println("Location is not in registry");
@@ -84,7 +84,7 @@ public class SystemTerminal {
     }
 
     public Temperature getTemperatureFromRead(Sensor sensor) {
-        Temperature temperature = Read.getTemperatureFromRead(sensor);
+        Temperature temperature = read.getTemperatureFromRead(sensor);
         return temperature;
     }
 }
