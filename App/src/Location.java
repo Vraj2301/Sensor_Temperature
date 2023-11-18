@@ -38,18 +38,9 @@ public class Location {
   // Override equals method of object class
   public Boolean equals(Location l) {
     if (this.location.equals(l.location) || this.locationID == l.locationID) {
-      /*
-       * System.out.println("Location with name " + this.location + " and locationId "
-       * + this.locationID
-       * + " exist in location registry.");
-       */
       return true;
     }
     return false;
-  }
-
-  public String toString() {
-    return this.location;
   }
 
 }
