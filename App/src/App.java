@@ -69,7 +69,7 @@ public class App {
         // sys.ReplaceSensor();
 
         // Use case 4: Return Location and Temperature collection
-        // System.out.println("\nUse case 4: Read all temperatures at covered locations");
-        // sys.ReturnAllTemperaturesAndLocations();
+        System.out.println("\nUse case 4: Read all temperatures at covered locations");
+        sys.returnAllTemperatureAndLocations();
     }
 }

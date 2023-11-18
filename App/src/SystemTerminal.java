@@ -119,8 +119,8 @@ public class SystemTerminal {
     public void returnAllTemperatureAndLocations() {
         for (SensorLocationPair SLpair : map.returnSLTable()) {
             Location l = SLpair.getLocation();
-            Sensor s = map.getSensorFromMap(l);
-            Temperature t = read.getTemperatureFromRead(s);
+            Sensor s = getSensorFromMap(l);
+            Temperature t = getTemperatureFromRead(s);
             System.out.println("Temperature at Location with ID: " + l.getlocationID() + ": " + t.getTempValue() + "\n");
         }
     }
