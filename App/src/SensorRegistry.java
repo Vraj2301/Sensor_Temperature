@@ -8,8 +8,13 @@ public class SensorRegistry {
 
     // Private constructor
     private SensorRegistry() {
-    this.sensorlist = new ArrayList<Sensor>();
-  }
+      this.sensorlist = new ArrayList<Sensor>();
+      // create sensor objects and add to sensorRegistry
+      sensorlist.add(new Sensor(0001));
+      sensorlist.add(new Sensor(0002));
+      sensorlist.add(new Sensor(0003));
+      sensorlist.add(new Sensor(0004)); 
+    }
 
     static SensorRegistry sensorRegistry = null;
 

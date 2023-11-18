@@ -1,101 +1,75 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        // initialize sensorRegistry instance
-        SensorRegistry sensorRegistry = SensorRegistry.getInstance();
-
         // create sensor objects
-        Sensor s1 = new Sensor(0001);
-        Sensor s2 = new Sensor(0002);
-        Sensor s3 = new Sensor(0003); // will not be registered
-        Sensor s4 = new Sensor(0004);
+        Sensor registeredSensor1 = new Sensor(0001);
+        Sensor registeredSensor2 = new Sensor(0002);
+        Sensor notRegisteredSensor = new Sensor(0005);
 
-        // add sensors s1 and s2 to sensor registry
-        sensorRegistry.addSensor(s1);
-        sensorRegistry.addSensor(s2);
-        sensorRegistry.addSensor(s4); // Trying to add sensor with same id to registry
+        Location registeredLocation1 = new Location(0001, "Location1");
+        Location registeredLocation2 = new Location(0002, "Location2");
+        Location registeredLocation3 = new Location(0003, "Location3");
+        Location notRegisteredLocation = new Location(0005, "Location5");
 
-        // initialize locationRegistry instance
-        LocationRegistry locationRegistry = LocationRegistry.getInstance();
-
-        // create location objects
-        Location l1 = new Location(0001, "Location1");
-        Location l2 = new Location(0002, "Location2");
-        Location l3 = new Location(0003, "Location3"); // will not be registered
-        Location l4 = new Location(0004, "Location4");
-
-        // add locations l1 and l2 to sensor registry
-        locationRegistry.addlocation(l1);
-        locationRegistry.addlocation(l2);
-        locationRegistry.addlocation(l4); // trying to add sensor with same locationId to registry
-
-        Temperature t1 = new Temperature(0.0);
-        Temperature t2 = new Temperature(0.0);
-        Temperature t3 = new Temperature(0.0);
-        Temperature t4 = new Temperature(0.0);
-        Temperature t5 = new Temperature(0.0);
-        Temperature t6 = new Temperature(0.0);
-        Temperature t7 = new Temperature(0.0);
-        Temperature t8 = new Temperature(0.0);
+        Temperature t1 = new Temperature();
+        Temperature t2 = new Temperature();
+        Temperature t3 = new Temperature();
+        Temperature t4 = new Temperature();
+        Temperature t5 = new Temperature();
+        Temperature t6 = new Temperature();
+        Temperature t7 = new Temperature();
 
         // initialize System terminal
         SystemTerminal sys = new SystemTerminal();
 
         // Use case 1: deploy sensor
-        // Success scenario: Deploy registered sensors to an uncovered locations that is
-        // registered
-        System.out.println("Use case 1: Deploy Sensor \n");
-        System.out.println("Deploy registered Sensor(s1) to an uncovered location(l1) that is registered.\n");
-        sys.DeploySensor(s1, l1,t1);
-        System.out.println("");
+        // expected output: Ok. Deployed Sensor with ID: 1
+        System.out.println("Use case 1: Deploy Sensor");
+        System.out.println("Deploy registered Sensor to an uncovered location that is registered.\n");
+        sys.DeploySensor(registeredSensor1, registeredLocation1,t1);
 
-        // attempting to deploy an unregistered Sensor to a unregistered Location
-        System.out.println("Attempting to deploy an unregistered Sensor(s3).\n");
-        sys.DeploySensor(s3, l3, t2);
-        System.out.println("");
+        // Sensor is not in registry
+        System.out.println("\nAttempting to deploy an unregistered Sensor.");
+        sys.DeploySensor(notRegisteredSensor, registeredLocation2, t2);
 
-        // attempting to deploy an unregistered Sensor to a registered Location
-        System.out.println("Attempting to deploy an unregistered Sensor(s3) to a registered Location(l2).\n");
-        sys.DeploySensor(s3, l2, t3);
-        System.out.println("");
+        // Location is not in registry
+        System.out.println("\nAttempting to deploy a registered Sensor to a unregistered Location.\n");
+        sys.DeploySensor(registeredSensor2, notRegisteredLocation, t3);
 
-        // attempting to deploy a registered Sensor to a unregistered location
-        System.out.println("Attempting to deploy a registered Sensor(s2) to a unregistered Location(l3).\n");
-        sys.DeploySensor(s2, l3, t4);
-        System.out.println("");
+        // Location already covered
+        System.out.println("\nAttempting to deploy an unregistered Sensor to a previously covered location.\n");
+        sys.DeploySensor(notRegisteredSensor, registeredLocation1,t4);
 
-        // attempting to deploy an unregistered Sensor to a previously covered location
-        System.out.println("Attempting to deploy an unregistered Sensor(s3) to a previously covered location(l1).\n");
-        sys.DeploySensor(s3, l1,t5);
-        System.out.println("");
+        // Location already covered
+        System.out.println("\nAttempting to deploy an registered Sensor to a covered location.\n");
+        sys.DeploySensor(registeredSensor2, registeredLocation1, t5);
 
-        // attempting to deploy an registered Sensor to a covered location
-        System.out.println("Attempting to deploy an registered Sensor(s2) to a covered location(l1).\n");
-        sys.DeploySensor(s2, l1, t6);
-        System.out.println("");
+        // Sensor already deployed
+        System.out.println("\nAttempting to re-deploy a sensor at location.\n");
+        sys.DeploySensor(registeredSensor1, registeredLocation2, t6);
 
-        // attempting to re-deploy a sensor to a different location
-        System.out.println("Attempting to re-deploy a sensor(s1) at location(l2).\n");
-        sys.DeploySensor(s1, l2, t7);
-        System.out.println("");
-
-        System.out.println("Attempting to re-deploy a sensor(s2) at location(l2).\n");
-        sys.DeploySensor(s2, l2, t8);
-        System.out.println("");
+        // Ok. Deployed Sensor with ID: 2
+        System.out.println("\nAttempting to Deploy a  registered sensor at registered location.\n");
+        sys.DeploySensor(registeredSensor2, registeredLocation2, t7);
 
         // Use case 2: read temperature Success scenario: read temperature at covered
         // location
-        System.out.println("Use case 2: Read Temperature \n");
-        System.out.println("Read temperature at covered locations(l1). \n");
-        sys.ReadTemperature(l1);
-        System.out.println("");
+        System.out.println("\nUse case 2: Read Temperature");
+        System.out.println("Read temperature at covered first covered location. \n");
+        sys.ReadTemperature(registeredLocation1);
 
-        System.out.println("Read temperature at covered locations(l2). \n");
-        sys.ReadTemperature(l2);
-        System.out.println("");
+        System.out.println("\nRead temperature at covered second covered locations. \n");
+        sys.ReadTemperature(registeredLocation2);
 
         // attempting to read temperature value from an uncovered location
-        System.out.println("Attempting to read temperature value from an uncovered location (l3).\n");
-        sys.ReadTemperature(l3);
-        System.out.println("");
+        System.out.println("\nAttempting to read temperature value from an uncovered location.\n");
+        sys.ReadTemperature(registeredLocation3);
+
+        // Use case 3: Replace Sensor
+        // System.out.println("\nUse case 3: Replace old sensor at covered locations with new sensor");
+        // sys.ReplaceSensor();
+
+        // Use case 4: Return Location and Temperature collection
+        // System.out.println("\nUse case 4: Read all temperatures at covered locations");
+        // sys.ReturnAllTemperaturesAndLocations();
     }
 }
