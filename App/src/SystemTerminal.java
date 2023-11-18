@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class SystemTerminal {
 
     private SensorRegistry sensorRegistry;
@@ -112,5 +114,14 @@ public class SystemTerminal {
     public Temperature getTemperatureFromRead(Sensor sensor) {
         Temperature temperature = read.getTemperatureFromRead(sensor);
         return temperature;
+    }
+
+    public void returnAllTemperatureAndLocations() {
+        for (SensorLocationPair SLpair : map.returnSLTable()) {
+            Location l = SLpair.getLocation();
+            Sensor s = getSensorFromMap(l);
+            Temperature t = getTemperatureFromRead(s);
+            System.out.println("Temperature at Location with ID: " + l.getlocationID() + ": " + t.getTempValue() + "\n");
+        }
     }
 }
