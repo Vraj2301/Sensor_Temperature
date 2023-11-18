@@ -7,10 +7,10 @@ public class SensorTemperaturePair {
     }
 
     public Sensor getSensor() {
-        return sensorTemperaturePair.first;
+        return sensorTemperaturePair.getFirst();
     }
 
     public Temperature getTemperature() {
-        return sensorTemperaturePair.second;
+        return sensorTemperaturePair.getSecond();
     }
 }

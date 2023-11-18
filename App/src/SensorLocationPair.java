@@ -6,10 +6,10 @@ public class SensorLocationPair {
     }
 
     public Sensor getSensor() {
-        return sensorLocationPair.first;
+        return sensorLocationPair.getFirst();
     }
 
     public Location getLocation() {
-        return sensorLocationPair.second;
+        return sensorLocationPair.getSecond();
     }
 }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Read {
-    List<SensorTemperaturePair> sensorTemperatureTable;
+    private List<SensorTemperaturePair> sensorTemperatureTable;
 
     private Read() {
         sensorTemperatureTable = new ArrayList<>();
