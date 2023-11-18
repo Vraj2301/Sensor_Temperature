@@ -56,6 +56,7 @@ public class SystemTerminal {
                     sensorRegistry.deleteSensorFromRegistry(old_sensor);
                     map.makeSensorLocationPair(new_sensor, location);
                     read.makeSensorTemperaturePair(new_sensor, temperature);
+                    new_sensor.setisDeployed(true);
                     System.out.println("OK. Sensor Replaced. Sensor with ID: " + new_sensor.getsensorID() + " is now deployed.");
                 } else {
                     System.out.println("New sensor is not in registry");
