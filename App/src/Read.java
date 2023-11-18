@@ -33,4 +33,13 @@ public class Read {
         sensorTemperatureTable.add(new SensorTemperaturePair(sensor, temperature));
     }
 
+    public void deleteSTPairFromRead(Sensor sensor) {
+        for(int i = 0 ; i < sensorTemperatureTable.size() ; i++) {
+            if((sensorTemperatureTable.get(i).getSensor()).equals(sensor) ) {
+                sensorTemperatureTable.remove(i);
+                break;
+            }
+        }
+    }
+
 }
