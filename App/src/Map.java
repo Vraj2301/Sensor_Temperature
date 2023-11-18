@@ -60,5 +60,13 @@ public class Map {
         return sensor;
     }
 
+    public void deleteSLPairFromMap(Sensor sensor, Location location) {
+        for(int i = 0 ; i < sensorLocationTable.size() ; i++) {
+            if((sensorLocationTable.get(i).getSensor()).equals(sensor) && (sensorLocationTable.get(i).getLocation()).equals(location)) {
+                sensorLocationTable.remove(i);
+                break;
+            }
+        }
+    }
 
 }
