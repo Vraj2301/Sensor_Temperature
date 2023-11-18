@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-    List<SensorLocationPair> sensorLocationTable; 
+    private List<SensorLocationPair> sensorLocationTable; 
     
     private Map() {
         sensorLocationTable = new ArrayList<>();
@@ -31,6 +31,10 @@ public class Map {
             }
         }
         return isInTable;
+    }
+
+    public List<SensorLocationPair> returnSLTable() { 
+        return sensorLocationTable;
     }
 
     public boolean isSensorInMap(Sensor sensor) {
