@@ -18,9 +18,6 @@ public class Map {
         return mapInstance;
     }
 
-    public int getMaplength() {
-        return sensorLocationTable.size();
-    }
 
     public void makeSensorLocationPair(Sensor sensor, Location location) {
         sensorLocationTable.add(new SensorLocationPair(sensor, location));

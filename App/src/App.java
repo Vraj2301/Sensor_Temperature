@@ -97,7 +97,5 @@ public class App {
         System.out.println("Attempting to read temperature value from an uncovered location (l3).\n");
         sys.ReadTemperature(l3);
         System.out.println("");
-
-        sys.returnAllTemperatureAndLocations();
     }
 }
