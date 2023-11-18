@@ -23,4 +23,8 @@ public class Temperature {
     public void setTempValue(double tempValue) {
         this.tempValue = tempValue;
     }
+
+    public String toString() {
+        return "Temp: " + this.tempValue;
+    }
 }

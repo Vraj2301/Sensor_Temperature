@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-    private List<SensorLocationPair> sensorLocationTable; 
-    
+    private List<SensorLocationPair> sensorLocationTable;
+
     private Map() {
         sensorLocationTable = new ArrayList<>();
     }
@@ -12,10 +12,14 @@ public class Map {
 
     // Static getInstance method
     static public Map getInstance() {
-    if (mapInstance == null)
-        mapInstance = new Map();
+        if (mapInstance == null)
+            mapInstance = new Map();
 
-    return mapInstance;
+        return mapInstance;
+    }
+
+    public int getMaplength() {
+        return sensorLocationTable.size();
     }
 
     public void makeSensorLocationPair(Sensor sensor, Location location) {
@@ -33,7 +37,7 @@ public class Map {
         return isInTable;
     }
 
-    public List<SensorLocationPair> returnSLTable() { 
+    public List<SensorLocationPair> returnSLTable() {
         return sensorLocationTable;
     }
 
@@ -57,6 +61,11 @@ public class Map {
             }
         }
         return sensor;
+    }
+
+    public Location getLocationFromMap(int i) {
+        SensorLocationPair pair = sensorLocationTable.get(i);
+        return pair.getLocation();
     }
 
 }

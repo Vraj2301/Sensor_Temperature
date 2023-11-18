@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class SystemTerminal {
 
     private SensorRegistry sensorRegistry;
@@ -46,6 +48,16 @@ public class SystemTerminal {
             System.out.println("OK. Temperature Value = " + tempValue.toString());
         } else {
             System.out.println("Location not covered.");
+        }
+    }
+
+    public void returnAllTemperatureAndLocations() {
+        for (int i = 0; i < map.getMaplength(); i++) {
+            Location l = map.getLocationFromMap(i);
+            Sensor s = map.getSensorFromMap(l);
+            Temperature t = read.getTemperatureFromRead(s);
+            System.out.println(l.toString() + "," + t.toString());
+
         }
     }
 

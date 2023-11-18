@@ -45,7 +45,7 @@ public class App {
         // registered
         System.out.println("Use case 1: Deploy Sensor \n");
         System.out.println("Deploy registered Sensor(s1) to an uncovered location(l1) that is registered.\n");
-        sys.DeploySensor(s1, l1,t1);
+        sys.DeploySensor(s1, l1, t1);
         System.out.println("");
 
         // attempting to deploy an unregistered Sensor to a unregistered Location
@@ -65,7 +65,7 @@ public class App {
 
         // attempting to deploy an unregistered Sensor to a previously covered location
         System.out.println("Attempting to deploy an unregistered Sensor(s3) to a previously covered location(l1).\n");
-        sys.DeploySensor(s3, l1,t5);
+        sys.DeploySensor(s3, l1, t5);
         System.out.println("");
 
         // attempting to deploy an registered Sensor to a covered location
@@ -97,5 +97,7 @@ public class App {
         System.out.println("Attempting to read temperature value from an uncovered location (l3).\n");
         sys.ReadTemperature(l3);
         System.out.println("");
+
+        sys.returnAllTemperatureAndLocations();
     }
 }

@@ -48,4 +48,8 @@ public class Location {
     return false;
   }
 
+  public String toString() {
+    return this.location;
+  }
+
 }
