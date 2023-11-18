@@ -49,6 +49,29 @@ public class SystemTerminal {
         }
     }
 
+    public void ReplaceSensor(Sensor new_sensor, Location location, Temperature temperature) {
+        if(isLocationInMap(location) == true) {
+            if(isSensorInMap(new_sensor) == false) {
+                if(isSensorInRegistry(new_sensor) == true) {
+                    Sensor old_sensor = getSensorFromMap(location);
+                    map.deleteSLPairFromMap(old_sensor, location);
+                    read.deleteSTPairFromRead(old_sensor);
+                    sensorRegistry.deleteSensorFromRegistry(old_sensor);
+                    map.makeSensorLocationPair(new_sensor, location);
+                    read.makeSensorTemperaturePair(new_sensor, temperature);
+                    new_sensor.setisDeployed(true);
+                    System.out.println("OK. Sensor Replaced. Sensor with ID: " + new_sensor.getsensorID() + " is now deployed.");
+                } else {
+                    System.out.println("New sensor is not in registry");
+                }
+            } else {
+                System.out.println("New sensor is already deployed");
+            }
+        } else {
+            System.out.println("Location not covered");
+        }
+    }
+
     public Boolean isSensorInRegistry(Sensor sensor) {
         boolean sensorInRegistry = false;
         if (sensorRegistry.isSensorInRegistry(sensor) == true) {
