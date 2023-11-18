@@ -63,9 +63,5 @@ public class Map {
         return sensor;
     }
 
-    public Location getLocationFromMap(int i) {
-        SensorLocationPair pair = sensorLocationTable.get(i);
-        return pair.getLocation();
-    }
 
 }

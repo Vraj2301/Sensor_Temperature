@@ -51,15 +51,6 @@ public class SystemTerminal {
         }
     }
 
-    public void returnAllTemperatureAndLocations() {
-        for (int i = 0; i < map.getMaplength(); i++) {
-            Location l = map.getLocationFromMap(i);
-            Sensor s = map.getSensorFromMap(l);
-            Temperature t = read.getTemperatureFromRead(s);
-            System.out.println(l.toString() + "," + t.toString());
-
-        }
-    }
 
     public Boolean isSensorInRegistry(Sensor sensor) {
         boolean sensorInRegistry = false;
@@ -101,5 +92,14 @@ public class SystemTerminal {
     public Temperature getTemperatureFromRead(Sensor sensor) {
         Temperature temperature = read.getTemperatureFromRead(sensor);
         return temperature;
+    }
+
+    public void returnAllTemperatureAndLocations() {
+        for (SensorLocationPair SLpair : map.returnSLTable()) {
+            Location l = SLpair.getLocation();
+            Sensor s = map.getSensorFromMap(l);
+            Temperature t = read.getTemperatureFromRead(s);
+            System.out.println("Temperature at Location with ID: " + l.getlocationID() + ": " + t.getTempValue() + "\n");
+        }
     }
 }
