@@ -27,16 +27,16 @@ public class SystemTerminal {
                         sensor.setisDeployed(true);
                         System.out.println("OK. Deployed Sensor with ID: " + sensor.getsensorID());
                     } else {
-                        System.out.println("Location is not in registry");
+                        System.out.println("Deployement Failed. Location is not in registry");
                     }
                 } else {
-                    System.out.println("Sensor is not in registry");
+                    System.out.println("Deployement Failed. Sensor is not in registry");
                 }
             } else {
-                System.out.println("Sensor already deployed");
+                System.out.println("Deployement Failed. Sensor already deployed");
             }
         } else {
-            System.out.println("Location already covered");
+            System.out.println("Deployement Failed. Location already covered");
         }
     }
 
@@ -55,22 +55,37 @@ public class SystemTerminal {
         if(isLocationInMap(location) == true) {
             if(isSensorInMap(new_sensor) == false) {
                 if(isSensorInRegistry(new_sensor) == true) {
-                    Sensor old_sensor = getSensorFromMap(location);
-                    map.deleteSLPairFromMap(old_sensor, location);
-                    read.deleteSTPairFromRead(old_sensor);
-                    sensorRegistry.deleteSensorFromRegistry(old_sensor);
-                    map.makeSensorLocationPair(new_sensor, location);
-                    read.makeSensorTemperaturePair(new_sensor, temperature);
-                    new_sensor.setisDeployed(true);
-                    System.out.println("OK. Sensor Replaced. Sensor with ID: " + new_sensor.getsensorID() + " is now deployed.");
+                    if((getTemperatureFromRead(getSensorFromMap(location)) == temperature)) {
+                        Sensor old_sensor = getSensorFromMap(location);
+                        map.deleteSLPairFromMap(old_sensor, location);
+                        read.deleteSTPairFromRead(old_sensor);
+                        sensorRegistry.deleteSensorFromRegistry(old_sensor);
+                        map.makeSensorLocationPair(new_sensor, location);
+                        read.makeSensorTemperaturePair(new_sensor, temperature);
+                        new_sensor.setisDeployed(true);
+                        System.out.println("OK. Replaced old sensor with ID: " + old_sensor.getsensorID() 
+                                            + " at  " + location.getlocation() 
+                                            + " with Sensor with ID: " + new_sensor.getsensorID());
+                    } else {
+                        System.out.println("Replacement Failed. Please enter the same temperature that was used when deploying old sensor at location with ID: " + location.getlocationID());
+                    }
                 } else {
-                    System.out.println("New sensor is not in registry");
+                    System.out.println("Replacement Failed. New sensor is not in registry");
                 }
             } else {
-                System.out.println("New sensor is already deployed");
+                System.out.println("Replacement Failed. New sensor is already deployed");
             }
         } else {
-            System.out.println("Location not covered");
+            System.out.println("Replacement Failed. Location not covered");
+        }
+    }
+
+    public void returnAllTemperatureAndLocations() {
+        for (SensorLocationPair SLpair : map.returnSLTable()) {
+            Location l = SLpair.getLocation();
+            Sensor s = getSensorFromMap(l);
+            Temperature t = getTemperatureFromRead(s);
+            System.out.println("Temperature at Location with ID: " + l.getlocationID() + ": " + t.getTempValue() + "\n");
         }
     }
 
@@ -114,14 +129,5 @@ public class SystemTerminal {
     public Temperature getTemperatureFromRead(Sensor sensor) {
         Temperature temperature = read.getTemperatureFromRead(sensor);
         return temperature;
-    }
-
-    public void returnAllTemperatureAndLocations() {
-        for (SensorLocationPair SLpair : map.returnSLTable()) {
-            Location l = SLpair.getLocation();
-            Sensor s = getSensorFromMap(l);
-            Temperature t = getTemperatureFromRead(s);
-            System.out.println("Temperature at Location with ID: " + l.getlocationID() + ": " + t.getTempValue() + "\n");
-        }
     }
 }

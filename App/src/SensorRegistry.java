@@ -48,4 +48,8 @@ public class SensorRegistry {
         sensorlist.remove(sensor);
     }
 
+    public List<Sensor> returnSensorList() { 
+      return sensorlist; 
+    }
+
 }
