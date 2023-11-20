@@ -47,4 +47,7 @@ public class LocationRegistry {
     }
   }
 
+  public List<Location> returnLocationList() { 
+    return locationlist; 
+  }
 }

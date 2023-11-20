@@ -27,4 +27,8 @@ public class TemperatureRegistry {
 
     return temperatureRegistry;
   }
+
+  public List<Temperature> returnTemperatureList() { 
+    return temperatureList; 
+  }
 }
