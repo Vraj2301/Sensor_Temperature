@@ -12,6 +12,6 @@ UML Sequence Diagram DeploySensor:   ![deploy sensor](https://github.com/AryanSh
 \
 UML Sequence Diagram ReadTemperature:   ![read temperature](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/37ff5990-4014-4ab6-a5ca-3b3ed2c44bac) \
 \
-UML Sequence Diagram ReplaceSensor:    ![replace sensor](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/dd06131b-3f6e-4b73-880f-39505a8feffe) \
+UML Sequence Diagram ReplaceSensor:   ![replace sensor](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/9222e2d8-cb4a-4c32-b430-cf56c666663f) \
 \
 UML Sequence Diagram ReturnAllTemperaturesAndLocations:  ![return collection](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/b6980bf2-06e0-4b5f-8ebe-987513fc59d5) \
