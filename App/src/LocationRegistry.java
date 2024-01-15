@@ -8,6 +8,11 @@ public class LocationRegistry {
   // Private constructor
   private LocationRegistry() {
     this.locationlist = new ArrayList<Location>();
+    // create location objects and add to locationRegistry
+    locationlist.add(new Location(0001, "Location1"));
+    locationlist.add(new Location(0002, "Location2"));
+    locationlist.add(new Location(0003, "Location3"));
+    locationlist.add(new Location(0004, "Location4"));
   }
 
   static LocationRegistry locationRegistry = null;
@@ -42,4 +47,7 @@ public class LocationRegistry {
     }
   }
 
+  public List<Location> returnLocationList() { 
+    return locationlist; 
+  }
 }

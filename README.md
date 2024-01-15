@@ -3,15 +3,15 @@ Aryan Shirazi - 40119594 - GitHub: AryanSh1380 - aryan.nathaniel.shirazi@gmail.c
 Karim Tabbara - 40157871 - GitHub: karim-tabbara - karimtabb2002@gmail.com - SOEN342 Section II \
 Vraj patel - 40155059 - GitHub: Vraj2301 - patelvn2301@gmail.com - SOEN342 Section II \
 \
-DIAGRAMS (THE LATEST UPDATES) : AS OF NOVEMBER 15 \
-Domain Model:   ![Domain Model](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/0e4ca73f-98d0-4ced-a66d-c46b59e49cc8) \
+DIAGRAMS (THE LATEST UPDATES) : AS OF NOVEMBER 19 \
+Domain Model:   ![domain model](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/32d9963a-5a24-4fc5-b882-e38c28b3c7c4) \
 \
-Class Diagram:   ![CLASS DIAGRAM](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/33a60fbc-aa25-44e4-a125-fc7ed082871f) \
+Class Diagram:    ![class diagram](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/a68a2ab1-6400-4933-b074-3aba0476e189) \
 \
-SSD DeploySensor:   ![DEPLOYSENSOR SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/36cf672d-86c0-4040-ba24-acee6df6cbce)\
+UML Sequence Diagram DeploySensor:   ![deploy sensor](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/9f2b9f34-4956-4d33-9a9d-1684e3c911d6) \
 \
-SSD ReadTemperature:  ![READTEMPERATURE SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/e06ce32b-34c6-47f6-8a30-0c7f3c2ad4d6) \
+UML Sequence Diagram ReadTemperature:   ![read temperature](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/37ff5990-4014-4ab6-a5ca-3b3ed2c44bac) \
 \
-SSD ReplaceSensor:  ![REPLACESENSOR SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/3b1b55f2-dcfa-400b-a131-2e7f1163cfa9) \
+UML Sequence Diagram ReplaceSensor:   ![replace sensor](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/9222e2d8-cb4a-4c32-b430-cf56c666663f) \
 \
-SSD ReturnAllTemperaturesAndLocations: ![RETURNCOLLECTION SSD](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/e1f886de-dc54-4108-acca-8ca91aa4ac4b) \
+UML Sequence Diagram ReturnAllTemperaturesAndLocations:  ![return collection](https://github.com/AryanSh1380/SOEN342-Project/assets/97918808/b6980bf2-06e0-4b5f-8ebe-987513fc59d5) \
